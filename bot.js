@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "#"
-var adminprefix = '#'
+var prefix = "^"
+var adminprefix = '^'
 
 client.on("message", (message) => {
     /// ALPHA CODES
-   if (message.content.startsWith("#new")) {     /// ALPHA CODES
+   if (message.content.startsWith("^new")) {     /// ALPHA CODES
         const reason = message.content.split(" ").slice(1).join(" ");     /// ALPHA CODES
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
@@ -36,7 +36,7 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("#close")) {
+  if (message.content.startsWith("^close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
        message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب #confirm`)
@@ -59,7 +59,7 @@ client.on("message", (message) => {
  
 });
 
-const developers = ["472413769700474901","530495558737985548"]
+const developers = ["558220897547452418","541201610039361547"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
